@@ -1,12 +1,14 @@
 import "dotenv/config.js";
+import "./config/database.js";
 import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import cors from 'cors';
 
-import indexRouter  from './routes/index.js';
-import usersRouter from './routes/users.js';
+import indexRouter  from './routes/indexRouter.js';
+import citiesRouter from './routes/citiesRouter.js';
 
 import { __dirname } from './utils.js';
 
@@ -21,14 +23,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors())
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api', indexRouter);
+app.use('/cities', citiesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
