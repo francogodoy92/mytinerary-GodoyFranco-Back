@@ -11,7 +11,7 @@ citiesRouter.post('/', createOneCity);
 citiesRouter.post('/many', createManyCities);
 
 citiesRouter.get('/', readAllCities);
-citiesRouter.get('/id/:id', readOneCityById);
+citiesRouter.get('/id/:ObjectId', readOneCityById);
 citiesRouter.get('/:city', readOneCityByName);
 
 citiesRouter.put('/', updateOneCity);
