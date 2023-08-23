@@ -10,7 +10,7 @@ const citiesRouter = Router();
 citiesRouter.post('/', createOneCity);
 citiesRouter.post('/many', createManyCities);
 citiesRouter.get('/', readAllCities);
-citiesRouter.get('/id/:ObjectId', readOneCityById);
+citiesRouter.get('/id/:id', readOneCityById);
 citiesRouter.put('/', updateOneCity);
 citiesRouter.delete('/', deleteOneCity);
 
