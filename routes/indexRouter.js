@@ -7,6 +7,7 @@ indexRouter.get('/', (request, response, next) => {
     response.send("Welcome to Mytinerary DB");
 })
 
+
 indexRouter.use('/cities', citiesRouter)
 
 export default indexRouter;
