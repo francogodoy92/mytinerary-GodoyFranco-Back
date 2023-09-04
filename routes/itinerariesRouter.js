@@ -2,7 +2,7 @@ import { Router } from "express";
 import itinerariesController from '../controllers/itinerariesControls.js';
 
 const {createOneItinerary, createManyItineraries,
-    readAllItineraries, readAllItinerariesByCity, readOneItineraryById, readOneItineraryByName,
+    readAllItineraries, readAllItinerariesByCityId, readOneItineraryById, readOneItineraryByName,
     updateOneItinerary, deleteOneItinerary} = itinerariesController;
 
 const itinerariesRouter = Router();
@@ -11,7 +11,7 @@ itinerariesRouter.post('/', createOneItinerary);
 itinerariesRouter.post('/many', createManyItineraries);
 
 itinerariesRouter.get('/', readAllItineraries);
-itinerariesRouter.get('/:city', readAllItinerariesByCity);
+itinerariesRouter.get('/:cityId', readAllItinerariesByCityId);
 itinerariesRouter.get('/id/:id', readOneItineraryById);
 itinerariesRouter.get('/name/:itinerary', readOneItineraryByName);
 
