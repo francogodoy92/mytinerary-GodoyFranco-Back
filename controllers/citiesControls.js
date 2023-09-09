@@ -46,6 +46,17 @@ const citiesController = {
         }
     },
 
+    readOneCityByName: async (req, res, next) => {
+        try {
+            let city = await City.findOne({city : req.params.name})
+            res.status(200).json({ response: city})
+        } catch (err) {
+            res.status(500).json({ 
+                succes: false,
+                response: err})
+        }
+    },
+
 
 
     updateOneCity: async (req, res, next) => {

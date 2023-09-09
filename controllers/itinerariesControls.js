@@ -32,9 +32,9 @@ const itinerariesController = {
 
     readAllItinerariesByCityId: async (req, res, next) => {
         try {
-            let city = await City.findById(req.params.cityId); // Cambio aquí
+            let city = await City.findById(req.params.cityId); 
             if (!city) {
-                return res.status(404).json({ error: 'Ciudad no encontrada' });
+                return res.status(404).json({ error: 'City not found' });
             }
     
             let itineraries = await Itinerary.find({ cityId: city._id });
@@ -44,7 +44,19 @@ const itinerariesController = {
         }
     },
     
+    readAllItinerariesByCity: async (req, res, next) => {
+        try {
+            let city = await City.findOne({city : req.params.city}); 
+            if (!city) {
+                return res.status(404).json({ error: 'City not found' });
+            }
     
+            let itineraries = await Itinerary.find({ cityId: city._id });
+            res.status(200).json({ response: itineraries });
+        } catch (err) {
+            next(err);
+        }
+    },
 
     readOneItineraryById: async (req, res, next) => {
         try {

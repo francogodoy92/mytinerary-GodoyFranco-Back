@@ -11,7 +11,9 @@ import indexRouter  from './routes/indexRouter.js';
 import citiesRouter from './routes/citiesRouter.js';
 import itinerariesRouter from "./routes/itinerariesRouter.js";
 
+
 import { __dirname } from './utils.js';
+import authRouter from "./routes/authRouter.js";
 
 const app = express();
 
@@ -27,8 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
 app.use('/api', indexRouter);
-app.use('/cities', citiesRouter);
-app.use('/itineraries', itinerariesRouter )
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
