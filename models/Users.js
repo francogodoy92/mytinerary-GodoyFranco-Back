@@ -14,6 +14,6 @@ const userSchema = Schema({
         timestamps: true
 })
 
-const User =model('user', userSchema)
+const User = model('user', userSchema)
 
 export default User
